@@ -27,4 +27,11 @@ export class User extends Model {
     allowNull: false,
   })
   role: string;
+
+  toJSON() {
+    return {
+      ...this.get(),
+      id: undefined,
+    };
+  }
 }

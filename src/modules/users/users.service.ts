@@ -15,4 +15,18 @@ export class UsersService {
 
     return result;
   }
+
+  async readAll() {
+    const result = await this.usersRepository.findAll();
+
+    return result;
+  }
+
+  async readOne(uuid: string) {
+    const result = await this.usersRepository.findOne({
+      where: { uuid },
+    });
+
+    return result;
+  }
 }
