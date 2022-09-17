@@ -1,5 +1,6 @@
 import { User } from '@/database/models/user.model';
 import { Injectable, Inject } from '@nestjs/common';
+import { UserDto } from './user.dto';
 
 @Injectable()
 export class UsersService {
@@ -8,7 +9,10 @@ export class UsersService {
     private usersRepository: typeof User,
   ) {}
 
-  async findAll(): Promise<User[]> {
-    return this.usersRepository.findAll<User>();
+  async create(user: UserDto): Promise<User> {
+    const { name, email, role } = user;
+    const result = await this.usersRepository.create({ name, email, role });
+
+    return result;
   }
 }
