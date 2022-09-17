@@ -19,7 +19,11 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "model:generate": "sh ./scripts/sequelize/model-generate.sh"
+    "model:generate": "sh ./scripts/sequelize/model-generate.sh",
+    "db:migrate:js": "yarn sequelize db:migrate",
+    "db:migrate": "sh ./scripts/sequelize/migrate.sh",
+    "db:migrate:status": "sh ./scripts/sequelize/migrate-status.sh",
+    "migration:generate": "sh ./scripts/sequelize/migration-generate.sh"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",

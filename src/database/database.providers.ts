@@ -18,9 +18,8 @@ export const databaseProviders = [
       }
       const sequelize = new Sequelize(postgresConfig);
       sequelize.addModels([User]);
-      // 해당 옵션은 수동 마이그레이션으로 작업할 것을 권장하기에 주석처리
-      // 일단 docs에 써 있어서 추가
-      await sequelize.sync({ force: true });
+      await sequelize.authenticate();
+      console.log('🔌 DB 연결 완료');
       return sequelize;
     },
   },
