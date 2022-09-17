@@ -1,0 +1,10 @@
+{ 
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#f07030",
+    "titleBar.activeForeground": "#ffffff" 
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true // eslint로 수정
+  },
+  "eslint.validate": ["javascript", "vue"] // 유효한 설정
+}
