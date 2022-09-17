@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 
 import * as config from '@/database/config/config.js';
+import { User } from '@/database/models/user.model';
 
 export const databaseProviders = [
   {
@@ -16,10 +17,10 @@ export const databaseProviders = [
           postgresConfig = config.development;
       }
       const sequelize = new Sequelize(postgresConfig);
-      sequelize.addModels([]);
+      sequelize.addModels([User]);
       // 해당 옵션은 수동 마이그레이션으로 작업할 것을 권장하기에 주석처리
       // 일단 docs에 써 있어서 추가
-      // await sequelize.sync();
+      await sequelize.sync({ force: true });
       return sequelize;
     },
   },
