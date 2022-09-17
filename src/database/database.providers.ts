@@ -2,6 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 
 import * as config from '@/database/config/config.js';
 import { User } from '@/database/models/user.model';
+import { Post } from './models/post.model';
 
 export const databaseProviders = [
   {
@@ -17,7 +18,7 @@ export const databaseProviders = [
           postgresConfig = config.development;
       }
       const sequelize = new Sequelize(postgresConfig);
-      sequelize.addModels([User]);
+      sequelize.addModels([User, Post]);
       await sequelize.authenticate();
       console.log('🔌 DB 연결 완료');
       return sequelize;

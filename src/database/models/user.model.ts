@@ -1,4 +1,5 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
+import { Post } from './post.model';
 
 @Table({
   tableName: 'users',
@@ -27,6 +28,9 @@ export class User extends Model {
     allowNull: false,
   })
   role: string;
+
+  @HasMany(() => Post)
+  posts: Post[];
 
   toJSON() {
     return {
