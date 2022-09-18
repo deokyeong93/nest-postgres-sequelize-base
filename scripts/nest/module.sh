@@ -10,9 +10,9 @@ cat > $shell_path/src/modules/${lowerTableName}/index.ts << EOF
 
 import { DatabaseModule } from '@/database/database.module';
 import { Module } from '@nestjs/common';
-import { ${tableName}Controller } from './$tableName.controller';
-import { ${lowerTableName}Providers } from './$tableName.providers';
-import { ${tableName}Service } from './$tableName.service';
+import { ${tableName}Controller } from './$lowerTableName.controller';
+import { ${lowerTableName}Providers } from './$lowerTableName.providers';
+import { ${tableName}Service } from './$lowerTableName.service';
 
 @Module({
   imports: [DatabaseModule],

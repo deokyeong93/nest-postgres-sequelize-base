@@ -19,7 +19,5 @@ export class ${tableName}Service {
     private ${lowerTableName}Repository: typeof $modelName,
   ) {}
 
-  async create($lowerModelName: ${modelName}Dto): Promise<$modelName> {
-
-  }
+  // async create($lowerModelName: ${modelName}Dto): Promise<$modelName> {}
 }
