@@ -37,7 +37,7 @@ export class User extends Model {
       isEmail: { msg: '올바른 이메일 유형을 따르세요' },
     },
   })
-  email: number;
+  email: string;
 
   @Column({
     type: DataType.STRING,

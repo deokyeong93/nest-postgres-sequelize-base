@@ -39,4 +39,18 @@ export class UsersService {
 
     return result;
   }
+
+  async update(user: { uuid: string } & UserDto) {
+    const result = await this.usersRepository.findOne({
+      where: { uuid: user.uuid },
+    });
+
+    result.name = user.name;
+    result.email = user.email;
+    result.role = user.role;
+
+    await result.save();
+
+    return result;
+  }
 }
