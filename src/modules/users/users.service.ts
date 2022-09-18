@@ -1,3 +1,4 @@
+import { Post } from '@/database/models/post.model';
 import { User } from '@/database/models/user.model';
 import { Injectable, Inject } from '@nestjs/common';
 import { UserDto } from './user.dto';
@@ -25,6 +26,7 @@ export class UsersService {
   async readOne(uuid: string) {
     const result = await this.usersRepository.findOne({
       where: { uuid },
+      include: [Post],
     });
 
     return result;
