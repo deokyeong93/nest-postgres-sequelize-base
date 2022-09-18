@@ -17,6 +17,14 @@ export class UsersService {
     return result;
   }
 
+  async delete(uuid: string): Promise<User> {
+    const user = await this.usersRepository.findOne({ where: { uuid } });
+
+    await user.destroy();
+
+    return user;
+  }
+
   async readAll() {
     const result = await this.usersRepository.findAll();
 

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Req, Res } from '@nestjs/common';
+import { Controller, Delete, Get, Post, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { UsersService } from './users.service';
 
@@ -26,5 +26,13 @@ export class UsersController {
     const result = await this.usersService.readOne(uuid);
 
     return res.json(result);
+  }
+
+  @Delete(':uuid')
+  async deleteUser(@Req() req: Request, @Res() res: Response) {
+    const { uuid } = req.params;
+    const result = await this.usersService.delete(uuid);
+
+    return res.json({ data: result, message: '유저 삭제' });
   }
 }
