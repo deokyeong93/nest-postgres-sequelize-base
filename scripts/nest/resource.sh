@@ -16,6 +16,8 @@ dto_path="$shell_path/scripts/nest/dto.sh"
 module_path="$shell_path/scripts/nest/module.sh"
 
 mkdir "$shell_path/src/modules/$lowerTableName"
+mkdir "$shell_path/src/database/models"
+
 echo `
   sh $model_generate_path $modelName;
   sh $controller_path $modelName;
