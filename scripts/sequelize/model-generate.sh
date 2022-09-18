@@ -1,7 +1,8 @@
 filename=$1
 lowerFilename=$(echo $filename | tr '[:upper:]' '[:lower:]')
+shell_path=`pwd -P`
 
-cat > ./src/database/models/$lowerFilename.model.ts << EOF
+cat > $shell_path/src/database/models/$lowerFilename.model.ts << EOF
 
 import { Table, Column, Model } from 'sequelize-typescript';
 

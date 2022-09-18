@@ -24,7 +24,8 @@
     "db:migrate": "sh ./scripts/sequelize/migrate.sh",
     "db:migrate:undo": "sh ./scripts/sequelize/migrate-undo.sh",
     "db:migrate:status": "sh ./scripts/sequelize/migrate-status.sh",
-    "migration:generate": "sh ./scripts/sequelize/migration-generate.sh"
+    "migration:generate": "sh ./scripts/sequelize/migration-generate.sh",
+    "nest:resource": "sh ./scripts/nest/resource.sh"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",

@@ -1,4 +1,5 @@
-cat > ./src/database/migrations/$(date +"%Y%m%d%H%M%S")-$1.ts << EOF
+shell_path=`pwd -P`
+cat > $shell_path/src/database/migrations/$(date +"%Y%m%d%H%M%S")-$1.ts << EOF
 import {
   QueryInterfaceType,
   SequelizeType,

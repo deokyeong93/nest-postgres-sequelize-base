@@ -1,5 +1,6 @@
 # TS => JS 컴파일 목표 디렉토리
-outDirURL="./src/database/build-migrations" 
+shell_path=`pwd -P`
+outDirURL="$shell_path/src/database/build-migrations" 
 
 # 환경 설정 (Commend시 결정)
 if [ -z "$1" ]; then
@@ -13,7 +14,7 @@ echo "📚 마이그레이션 환경 : $ENVIRONMENT"
 echo " "
 
 echo "🚀 1단계 : TS 마이그레이션 파일 => JS 컴파일"
-for filename in ./src/database/migrations/*.ts; do
+for filename in $shell_path/src/database/migrations/*.ts; do
   yarn tsc -t es2017 --module commonJS --outDir $outDirURL $filename
 done
 echo "👍 TS => JS 컴파일 완료"
